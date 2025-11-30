@@ -1,4 +1,4 @@
-# ⚠️Warning: This is very much a new work in progress. Many stubs and non-working code.⚠️
+## ⚠️ **Warning**: This is very much a new work in progress. Many stubs and non-working code.⚠️
 
 # ESP32 Starter – Project & Board Generator for ESP-IDF
 
@@ -159,3 +159,8 @@ ESP-IDF and its bundled third-party libraries are licensed separately under perm
 ---
 
 Enjoy building clean ESP-IDF projects! 🚀
+
+
+
+
+<center> This repository was automatically pushed from my self-hosted Forgejo server. Give it a try <a href="https://forgejo.org/">Forgejo</a>. </center>
