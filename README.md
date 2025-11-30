@@ -1,3 +1,5 @@
+#⚠️Warning: This is very much a new work in progress. Many stubs and not-working code.
+
 # ESP32 Starter – Project & Board Generator for ESP-IDF
 
 **ESP32 Starter** is a modular project generator for ESP-IDF.  

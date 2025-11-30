@@ -12,7 +12,7 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 
-// --- HARDWARE CONFIGURATION (Plain ESP32) ---
+// --- HARDWARE CONFIGURATION (Plain ESP32-D0WD) ---
 #define LCD_HOST        SPI2_HOST
 
 #define PIN_NUM_MISO    -1         // Not used for LCD
@@ -21,13 +21,22 @@
 #define PIN_NUM_CS      5          // CS
 #define PIN_NUM_DC      27         // DC
 #define PIN_NUM_RST     33         // RST
-#define PIN_NUM_BK_LIGHT 22        // Backlight (if you want to use it)
+#define PIN_NUM_BK_LIGHT 32        // Backlight
 
 #define LCD_H_RES       240
 #define LCD_V_RES       240
 
-static const char *TAG = "WVSHR_128_ESP32";
+static const char *TAG = "HB_107_128_RND";
 static esp_lcd_panel_handle_t panel = NULL;
+
+// GC9A01 over SPI expects RGB565 bytes MSB-first on the wire. The esp_lcd SPI
+// I/O helper doesn't swap payload bytes for you, so convert every color word
+// before handing it off.
+static inline uint16_t swap_bytes_to_panel_color(uint16_t color)
+{
+    return (color << 8) | (color >> 8);
+}
+
 
 // Helper: fill entire screen with a solid color using draw_bitmap
 static void fill_screen(uint16_t color)
@@ -36,9 +45,10 @@ static void fill_screen(uint16_t color)
 
     // 1 line of pixels (RGB565)
     static uint16_t line[LCD_H_RES];
-
+    uint16_t panel_color = swap_bytes_to_panel_color(color);
+    
     for (int x = 0; x < LCD_H_RES; x++) {
-        line[x] = color;
+        line[x] = panel_color;
     }
 
     // Draw one line at a time
@@ -54,7 +64,7 @@ static void fill_screen(uint16_t color)
 
 void board_init(void)
 {
-    ESP_LOGI(TAG, "Init Waveshare 1.28 Round esp32-d0 no touch board");
+    ESP_LOGI(TAG, "Init HackerBox 107 1.28 Round ESP32-D0WD lcd board");
 
     spi_bus_config_t buscfg = {
         .sclk_io_num = PIN_NUM_CLK,
@@ -91,13 +101,14 @@ void board_init(void)
     ESP_ERROR_CHECK(esp_lcd_panel_reset(panel));
     ESP_ERROR_CHECK(esp_lcd_panel_init(panel));
     ESP_ERROR_CHECK(esp_lcd_panel_mirror(panel, true, false));
+    ESP_ERROR_CHECK(esp_lcd_panel_invert_color(panel, true));
 
-    ESP_LOGI(TAG, "Waveshare 1.28 Round esp32-d0 init done.");
+    ESP_LOGI(TAG, "WHackerBox 107 1.28 Round ESP32-D0WD init done.");
 }
 
 const char *board_get_name(void)
 {
-    return "Waveshare 1.28 Round esp32-d0";
+    return "HackerBox 107 1.28 Round ESP32-D0WD";
 }
 
 bool board_has_lcd(void)
@@ -122,14 +133,14 @@ void board_lcd_sanity_test(void)
     esp_lcd_panel_disp_on_off(panel, true);
 
     fill_screen(red);
-    vTaskDelay(pdMS_TO_TICKS(250));
+    vTaskDelay(pdMS_TO_TICKS(500));
 
     fill_screen(green);
-    vTaskDelay(pdMS_TO_TICKS(250));
+    vTaskDelay(pdMS_TO_TICKS(500));
 
     fill_screen(blue);
-    vTaskDelay(pdMS_TO_TICKS(250));
+    vTaskDelay(pdMS_TO_TICKS(500));
 
     fill_screen(black);
-    vTaskDelay(pdMS_TO_TICKS(250));
+    vTaskDelay(pdMS_TO_TICKS(500));
 }
