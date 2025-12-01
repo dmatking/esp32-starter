@@ -2,7 +2,7 @@
 
 [Goto Home](/README.md)
 
-A quick test of *idf.py build flash monitor* for an ESP32. Technically this should work for any ESP32, that can be flashed from UART. It sets up a FreeRTOS task, starts it and outputs to the serial console every second. No other peripherals are initialized.
+A quick test of *idf.py build flash monitor* for an ESP32. Technically this should work for almost any ESP32. It sets up a FreeRTOS task, starts it and outputs to the serial console every second. No other peripherals are initialized.
 
 ---
 
