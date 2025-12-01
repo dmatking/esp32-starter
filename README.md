@@ -1,5 +1,13 @@
 ## ⚠️ **Warning**: This is very much a new work in progress. Many stubs and non-working code.⚠️
 
+#### Built using Python 3.13.5
+
+## What is working?
+ - Main cli - currently you can call it from the esp32-starter directory like so:  `python -m esp32_init_tool.esp32_init.cli project_name --board generic`
+ - Boards
+    - Generic ESP32 - very simple test that should work for almost any ESP32. Creates a FreeRTOS task and outputs a count to the serial console. No other peripherals are initialized. [Generic ESP32](boards/generic/README.md)
+    - hackerbox107-128-round [HackerBox 107](boards/hackerbox107-128-round/README.md)
+
 # ESP32 Starter – Project & Board Generator for ESP-IDF
 
 **ESP32 Starter** is a modular project generator for ESP-IDF.  
@@ -34,13 +42,12 @@ Setting up each project becomes tedious:
 **This tool solves that by letting you do:**
 
 ```bash
-esp32-init my_project --board wvshr_1.28_esp32 --gps --lvgl
+python -m esp32_init_tool.esp32_init.cli my_project --board generic --gps --lvgl
 ```
 
 …and you instantly get a *clean*, *minimal*, *correctly-wired*, *feature-enabled* ESP-IDF project.
 
-Every project contains only the files it needs.  
-No bloat. No stale code. Pure clarity.
+Every project contains only the files it needs. No bloat. 
 
 ---
 
@@ -91,7 +98,7 @@ Implements:
 Example:
 
 ```bash
-esp32-init myapp   --board wvshr_1.28_esp32   --gps   --lvgl
+python -m esp32_init_tool.esp32_init.cli myapp --board generic --gps --lvgl
 ```
 
 This:
@@ -146,7 +153,7 @@ pip install -e .
 Then:
 
 ```bash
-esp32-init <project_name> --board <board_id> [--gps] [--lvgl]
+python -m esp32_init_tool.esp32_init.cli <project_name> --board <board_id> [--gps] [--lvgl]
 ```
 
 ---

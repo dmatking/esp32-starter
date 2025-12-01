@@ -1,7 +1,13 @@
 # HackerBox 107 — Round ESP32 Board
 
-A compact, high-quality circular ESP32 board included with **HackerBox #107**.
+[Goto Home](/README.md)
+
+A compact, high-quality circular ESP32 board included with **HackerBox #0107**.
 Features a GC9A01 TFT header, micro-SD slot, FPC connector, and a very unusual **true hardware power switch**.
+
+This board is a bit of a unicorn. It came with HackerBox #0107 which at the time of this writing *2025-11-30* is still available for sale on their website. [HackerBox #0107](https://hackerboxes.com/products/hackerbox-0107-dock)
+
+There is no indication of the manufacturer on the board or in the docs, so there may or may not be examples of this board in the wild beyond the HackerBox offering. If you know anything about the origin of this board, please let me know.
 
 ![Board Photo](images/hackerbox107-1.28.webp)
 
