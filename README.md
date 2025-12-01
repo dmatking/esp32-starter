@@ -154,7 +154,7 @@ You can now use `--<name>` in the generator.
 
 ---
 
-## 🔧 Installation & Usage
+## 🔧 Installation & Usage - This has not been tested. dmk
 
 ```bash
 cd idf_new_tool
