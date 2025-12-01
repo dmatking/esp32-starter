@@ -1,6 +1,7 @@
 ## ⚠️ **Warning**: This is very much a new work in progress. Many stubs and non-working code.⚠️
 
 #### Built using Python 3.13.5
+#### ESP-IDF verion 5.5.1
 
 ## What is working?
  - Main cli - currently you can call it from the esp32-starter directory like so:  `python -m esp32_init_tool.esp32_init.cli project_name --board generic`
