@@ -70,7 +70,7 @@ esp32-starter/
 
 ### `boards/` – board-specific wiring implementations
 
-Each board implements functions declared in `board_if.h` and defines hardware wiring.
+Each board implements functions declared in `board_interface.h` and defines hardware wiring.
 
 ### `features/` – reusable feature modules (C code)
 
@@ -117,7 +117,7 @@ This:
 
 1. Create a new folder in `boards/<board_id>/`
 2. Add `board_impl.c` and optional `idf_component.yml`
-3. Implement required functions from `board_if.h`
+3. Implement required functions from `board_interface.h`
 4. Generate a test project to verify everything works
 
 ---

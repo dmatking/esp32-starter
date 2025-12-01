@@ -8,7 +8,7 @@
 #include "freertos/task.h"
 #include "esp_log.h"
 
-#include "board_if.h"
+#include "board_interface.h"
 
 static const char *TAG = "APP";
 
