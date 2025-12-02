@@ -1,4 +1,3 @@
-## ⚠️ **Warning**: This is very much a new work in progress. Many stubs and non-working code.⚠️
 
 #### Built using Python 3.13.5
 #### ESP-IDF verion 5.5.1
