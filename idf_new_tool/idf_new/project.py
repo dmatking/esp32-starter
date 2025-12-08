@@ -34,6 +34,12 @@ class Project:
 		return destination
 
 
+
+def _sanitize_board_id(board_id: str) -> str:
+	safe = board_id.replace("\\", "/").replace("/", "_").strip()
+	return safe or "board"
+
+
 def create_project(name: str, template_dir: Path, destination: Path | None = None) -> Project:
 	if not template_dir.exists():
 		raise FileNotFoundError(f"Template directory not found: {template_dir}")
@@ -53,7 +59,8 @@ def install_board(project: Project, board_dir: Path, board_id: str) -> Path:
 	if not board_impl.exists():
 		raise FileNotFoundError(f"Board '{board_id}' is missing board_impl.c")
 
-	destination = project.copy_into_main(board_impl, f"board_{board_id}.c")
+	file_stub = _sanitize_board_id(board_id)
+	destination = project.copy_into_main(board_impl, f"board_{file_stub}.c")
 	project.replace_text(
 		project.main_dir / "CMakeLists.txt",
 		"board_impl.c",

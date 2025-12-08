@@ -7,7 +7,7 @@
  - Boards
     - Generic ESP32 - very simple test that should work for almost any ESP32. Creates a FreeRTOS task and outputs a count to the serial console. No other peripherals are initialized. [Generic ESP32](boards/generic/README.md)
     - hackerbox107-128-round [HackerBox 107](boards/hackerbox107-128-round/README.md)
-    - Waveshare ESP32-S3 1.85" round with and without touch [Waveshare 1.85"](boards/wvshr_1.85_esp32s3/README.md) and [Waveshare 1.85" Touch](boards/wvshr_1.85_esp32s3_touch/README.md)
+   - Waveshare ESP32-S3 1.85" round with and without touch [Waveshare 1.85"](boards/waveshare/wvshr_1.85_esp32s3/README.md) and [Waveshare 1.85" Touch](boards/waveshare/wvshr_1.85_esp32s3_touch/README.md)
     - Waveshare ESP32-S3 2" 240x320 touch screen dev board [ESP32-S3 240x320 Board](https://www.waveshare.com/product/arduino/boards-kits/esp32-s3/esp32-s3-touch-lcd-2.htm)
 
 

@@ -18,7 +18,10 @@ def build_parser() -> tuple[argparse.ArgumentParser, list]:
         description="Initialize a new ESP-IDF project using idf-new templates."
     )
     parser.add_argument("project_name", nargs="?", help="Name of the new project directory")
-    parser.add_argument("--board", help="Board ID (folder under boards/)")
+    parser.add_argument(
+        "--board",
+        help="Board ID (relative path under boards/, e.g., waveshare/wvshr_1.85_esp32s3)",
+    )
     parser.add_argument(
         "--dest",
         type=Path,
