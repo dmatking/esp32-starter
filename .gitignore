@@ -2,7 +2,7 @@
 build/
 sdkconfig
 sdkconfig.old
-lilygo/vendor
+boards/lilygo/vendor
 
 # Python
 __pycache__/
