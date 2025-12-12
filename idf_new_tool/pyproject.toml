@@ -7,8 +7,7 @@ name = "idf-new"
 version = "0.1.0"
 description = "idf-new project generator for ESP-IDF"
 authors = [{ name = "David M. King" }]
-license = { text = "Apache-2.0" }
-readme = "../README.md"
+license = "Apache-2.0"
 requires-python = ">=3.11"
 dependencies = []
 
